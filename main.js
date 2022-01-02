@@ -240,7 +240,7 @@ const app = {
   defineProperties: function () {
     Object.defineProperty(app, "currentSong", {
       get: function () {
-        // app.setConfig("currentIndex", app.currentIndex);
+        app.setConfig("currentIndex", app.currentIndex);
         return app.songs[app.currentIndex];
       },
     });
@@ -284,10 +284,19 @@ const app = {
 
   scrollToActiveSong: function () {
     setTimeout(() => {
-      $(".song.active").scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
+      if (this.currentIndex < 2) {
+        const scrollSong = $(".song.active");
+        scrollSong.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      } else {
+        const scrollSong = $(".song.active");
+        scrollSong.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
     }, 300);
   },
   start: function () {
