@@ -240,7 +240,7 @@ const app = {
   defineProperties: function () {
     Object.defineProperty(app, "currentSong", {
       get: function () {
-        app.setConfig("currentIndex", app.currentIndex);
+        // app.setConfig("currentIndex", app.currentIndex);
         return app.songs[app.currentIndex];
       },
     });
