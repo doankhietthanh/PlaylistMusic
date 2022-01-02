@@ -195,12 +195,18 @@ const app = {
       app.isRandom = !app.isRandom;
       app.setConfig("isRandom", app.isRandom);
       randomBtn.classList.toggle("active", app.isRandom);
+
+      app.isRepeat = false;
+      repeatBtn.classList.toggle("active", app.isRepeat);
     });
 
     repeatBtn.addEventListener("click", () => {
       app.isRepeat = !app.isRepeat;
       app.setConfig("isRepeat", app.isRepeat);
       repeatBtn.classList.toggle("active", app.isRepeat);
+
+      app.isRandom = false;
+      randomBtn.classList.toggle("active", app.isRandom);
     });
 
     // Khi bài hát kết thúc
